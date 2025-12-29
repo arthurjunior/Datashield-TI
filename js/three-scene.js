@@ -1,8 +1,7 @@
 /**
- * HYPER-NETWORK AI NEURON CORE - FINAL V3
- * - Fixed Dimensional Mouse Tracking
- * - Real-time Synaptic Connections
- * - Recursive Neural Depth
+ * HYPER-NETWORK AI NEURON CORE - MULTI-DEVICE
+ * - Fixed Mobile Touch Support
+ * - Dimensional Mouse/Touch Tracking
  */
 
 class CinematicNetwork {
@@ -17,6 +16,7 @@ class CinematicNetwork {
         
         this.scrollProgress = 0; 
         this.targetScroll = 0;
+        this.lastTouchY = 0; // Para controle mobile
 
         this.CONFIG = {
             PARTICLE_COUNT: 160,
@@ -133,16 +133,38 @@ class CinematicNetwork {
         this.scene.add(this.lineMesh);
     }
 
+    handleInput(clientX, clientY) {
+        this.mouse2D.x = (clientX / window.innerWidth) * 2 - 1;
+        this.mouse2D.y = -(clientY / window.innerHeight) * 2 + 1;
+    }
+
     addEvents() {
+        // Desktop Scroll
         window.addEventListener('wheel', (e) => {
             this.targetScroll += e.deltaY * 0.0008;
             this.targetScroll = Math.max(0, Math.min(1.2, this.targetScroll));
         }, { passive: true });
 
+        // Desktop Mouse Move
         window.addEventListener('mousemove', (e) => {
-            this.mouse2D.x = (e.clientX / window.innerWidth) * 2 - 1;
-            this.mouse2D.y = -(e.clientY / window.innerHeight) * 2 + 1;
+            this.handleInput(e.clientX, e.clientY);
         });
+
+        // Mobile Touch (Simula Scroll e Mouse)
+        window.addEventListener('touchstart', (e) => {
+            this.lastTouchY = e.touches[0].clientY;
+            this.handleInput(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: false });
+
+        window.addEventListener('touchmove', (e) => {
+            const touchY = e.touches[0].clientY;
+            const deltaY = this.lastTouchY - touchY;
+            this.targetScroll += deltaY * 0.002; // Sensibilidade do toque
+            this.targetScroll = Math.max(0, Math.min(1.2, this.targetScroll));
+            this.lastTouchY = touchY;
+
+            this.handleInput(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: false });
 
         window.addEventListener('resize', () => {
             this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -158,15 +180,10 @@ class CinematicNetwork {
         this.particleMaterial.uniforms.uTime.value = time;
         this.particleMaterial.uniforms.uProgress.value = Math.min(1.0, this.scrollProgress);
 
-        // --- CÁLCULO DE MOUSE DIMENSIONAL ---
         this.raycaster.setFromCamera(this.mouse2D, this.camera);
-        // Interceptamos o mouse em um plano que acompanha a profundidade do globo
-        const zTarget = (1.0 - this.scrollProgress) * 0; 
-        const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), -zTarget);
+        const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
         const intersectPoint = new THREE.Vector3();
         this.raycaster.ray.intersectPlane(planeZ, intersectPoint);
-
-        // IMPORTANTE: Transformar a posição do mouse para o espaço local da cena rotacionada
         this.mouse3D.copy(intersectPoint).applyMatrix4(this.scene.matrixWorld.clone().invert());
 
         const posAttr = this.points.geometry.attributes.position.array;
@@ -174,7 +191,6 @@ class CinematicNetwork {
         const lineCoords = [];
         const currentPositions = [];
 
-        // 1. Calcular posições atuais interpoladas
         for (let i = 0; i < this.CONFIG.PARTICLE_COUNT; i++) {
             const i3 = i * 3;
             const px = THREE.MathUtils.lerp(posAttr[i3], sphereAttr[i3], Math.min(1.0, this.scrollProgress));
@@ -183,25 +199,20 @@ class CinematicNetwork {
             currentPositions.push(new THREE.Vector3(px, py, pz));
         }
 
-        // 2. Gerar conexões neurais e magnéticas
         for (let i = 0; i < this.CONFIG.PARTICLE_COUNT; i++) {
             const p1 = currentPositions[i];
             let connections = 0;
 
-            // Conexão entre partículas
             for (let j = i + 1; j < this.CONFIG.PARTICLE_COUNT; j++) {
                 if (connections >= this.CONFIG.MAX_CONNECTIONS) break;
                 const p2 = currentPositions[j];
-                const dist = p1.distanceTo(p2);
-                if (dist < this.CONFIG.CONNECT_DIST) {
+                if (p1.distanceTo(p2) < this.CONFIG.CONNECT_DIST) {
                     lineCoords.push(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
                     connections++;
                 }
             }
 
-            // Conexão Magnética (Mouse) - Agora funciona no Globo!
-            const distToMouse = p1.distanceTo(this.mouse3D);
-            if (distToMouse < 28) {
+            if (p1.distanceTo(this.mouse3D) < 28) {
                 lineCoords.push(p1.x, p1.y, p1.z, this.mouse3D.x, this.mouse3D.y, this.mouse3D.z);
             }
         }
@@ -213,18 +224,13 @@ class CinematicNetwork {
 
     animate() {
         this.update();
-        const time = this.clock.getElapsedTime();
+        this.scene.rotation.y = this.clock.getElapsedTime() * 0.08 + (this.scrollProgress * 2.5);
+        this.scene.updateMatrixWorld();
 
-        // Rotação da Cena
-        this.scene.rotation.y = time * 0.08 + (this.scrollProgress * 2.5);
-        this.scene.updateMatrixWorld(); // Força atualização para o cálculo do mouse3D
-
-        // Efeito de Câmera (Dolly Zoom)
         this.camera.position.z = 70 - (this.scrollProgress * 100);
         this.camera.fov = 60 + (this.scrollProgress * 40);
         this.camera.updateProjectionMatrix();
 
-        // Parallax suave
         this.camera.position.x += (this.mouse2D.x * 12 - this.camera.position.x) * 0.05;
         this.camera.position.y += (this.mouse2D.y * 10 - this.camera.position.y) * 0.05;
         this.camera.lookAt(0, 0, 0);

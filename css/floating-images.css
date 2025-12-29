@@ -1,8 +1,8 @@
 /* ============================================
-   FLOATING BACKGROUND IMAGES
+   SISTEMA DE TRAVESSIA DE IMAGENS
    ============================================ */
 
-.floating-background-images {
+   .floating-background-images {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,50 +15,71 @@
 
 .floating-img {
     position: absolute;
-    opacity: 0.1;
-    filter: blur(2px);
-    animation: float 20s ease-in-out infinite;
+    opacity: 0.15;
+    filter: blur(0px); /* Nítido como solicitado */
+    will-change: transform;
 }
 
+/* IMAGEM 1: Atravessa horizontalmente (Esquerda para Direita) */
 .floating-img-1 {
-    top: 10%;
-    left: 5%;
     width: 300px;
-    animation-delay: 0s;
+    top: 15%;
+    left: -350px; /* Começa totalmente escondida à esquerda */
+    animation: atravessar-horizontal 40s linear infinite;
 }
 
+/* IMAGEM 2: Atravessa diagonalmente (Baixo para Cima/Esquerda) */
 .floating-img-2 {
-    top: 50%;
-    right: 10%;
     width: 250px;
-    animation-delay: 7s;
+    bottom: -300px; /* Começa totalmente escondida embaixo */
+    right: 10%;
+    animation: atravessar-diagonal 55s linear infinite;
 }
 
+/* IMAGEM 3: Atravessa verticalmente (Cima para Baixo) */
 .floating-img-3 {
-    bottom: 15%;
-    left: 15%;
     width: 200px;
-    animation-delay: 14s;
+    top: -250px; /* Começa totalmente escondida no topo */
+    left: 40%;
+    animation: atravessar-vertical 45s linear infinite;
 }
 
-@keyframes float {
-    0%, 100% {
+/* --- KEYFRAMES DE TRAVESSIA REAL --- */
+
+@keyframes atravessar-horizontal {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    100% {
+        /* Move a largura total da tela + o tamanho da imagem */
+        transform: translateX(calc(100vw + 400px)) rotate(360deg);
+    }
+}
+
+@keyframes atravessar-diagonal {
+    0% {
         transform: translate(0, 0) rotate(0deg);
     }
-    33% {
-        transform: translate(30px, -30px) rotate(5deg);
-    }
-    66% {
-        transform: translate(-20px, 20px) rotate(-5deg);
+    100% {
+        /* Sobe e vai para a esquerda */
+        transform: translate(-100vw, -120vh) rotate(-180deg);
     }
 }
 
+@keyframes atravessar-vertical {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        /* Desce a tela inteira */
+        transform: translateY(calc(100vh + 300px)) rotate(180deg);
+    }
+}
+
+/* Ajuste Mobile para não carregar demais o processador */
 @media (max-width: 768px) {
     .floating-img {
         width: 150px !important;
-        opacity: 0.05;
+        opacity: 0.08;
     }
 }
-
-
-
