@@ -1,0 +1,180 @@
+/* ============================================
+   PROJETOS PAGE - FUTURISTIC CARDS
+   ============================================ */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.project-card {
+    background: rgba(18, 18, 18, 0.6);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.4s var(--transition-smooth);
+    backdrop-filter: blur(10px);
+    clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-tech-cyan);
+    box-shadow: 0 25px 70px rgba(0, 255, 255, 0.25);
+}
+
+.project-image {
+    position: relative;
+    height: 250px;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 255, 255, 0.1));
+    overflow: hidden;
+}
+
+.project-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-tech-cyan);
+    opacity: 0.3;
+}
+
+.project-placeholder svg {
+    width: 80px;
+    height: 80px;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: var(--spacing-md);
+    opacity: 0;
+    transition: opacity 0.4s var(--transition-smooth);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-category {
+    background: rgba(0, 255, 255, 0.2);
+    border: 1px solid var(--color-tech-cyan);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-tech-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.project-content {
+    padding: var(--spacing-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-white-tech);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.project-description {
+    color: var(--color-metallic);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.tech-tag {
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: var(--color-tech-cyan);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.project-card:hover .tech-tag {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: var(--color-tech-cyan);
+    transform: translateY(-2px);
+}
+
+.project-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.project-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--color-tech-cyan);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--color-metallic);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* 3D Hover Effect */
+.project-card {
+    transform-style: preserve-3d;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+    
+    .project-stats {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+
+
+

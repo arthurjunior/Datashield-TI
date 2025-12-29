@@ -1,0 +1,173 @@
+/* ============================================
+   SERVIÇOS PAGE - PREMIUM CARDS WITH 3D INTERACTIONS
+   ============================================ */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.service-card {
+    background: rgba(18, 18, 18, 0.6);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    padding: var(--spacing-lg);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s var(--transition-smooth);
+    backdrop-filter: blur(10px);
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(0, 102, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.4s var(--transition-smooth);
+    pointer-events: none;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-tech-cyan);
+    box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-tech-cyan);
+    position: relative;
+    transition: transform 0.4s var(--transition-bounce);
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+}
+
+.service-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-white-tech);
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.service-description {
+    color: var(--color-metallic);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+    padding: 0;
+}
+
+.service-features li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--color-white-tech);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.05);
+    transition: padding-left 0.3s var(--transition-smooth);
+}
+
+.service-features li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--color-tech-cyan);
+    font-size: 0.7rem;
+    transition: transform 0.3s var(--transition-smooth);
+}
+
+.service-card:hover .service-features li::before {
+    transform: translateX(5px);
+}
+
+.service-features li:last-child {
+    border-bottom: none;
+}
+
+.service-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, var(--color-tech-blue), var(--color-tech-cyan));
+    color: var(--color-bg-deep);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    transition: all 0.3s var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.service-cta:hover::before {
+    left: 100%;
+}
+
+.service-cta:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+}
+
+/* 3D Card Effect */
+.service-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.service-card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.4s var(--transition-smooth);
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .service-card {
+        padding: var(--spacing-md);
+    }
+}
+
+
+

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datashield TI - Soluções avançadas em CFTV, infraestrutura de redes e suporte técnico. Tecnologia de ponta para sua empresa em Manaus, Amazonas.">
+    <meta name="keywords" content="CFTV, infraestrutura de redes, suporte técnico, tecnologia, segurança digital, Manaus, Amazonas">
+    <title>Datashield TI - Tecnologia e Segurança Digital</title>
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/clients.css">
+    <link rel="stylesheet" href="css/floating-images.css">
+    <link rel="stylesheet" href="css/whatsapp-button.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Canvas 3D Background -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Datashield TI"> 
+                <span class="logo-text">Datashield TI</span>
+                <span class="logo-dot"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-glitch" data-text="TI avançado">TI avançado</div>
+            <h1 class="hero-title">
+                <span class="title-line">Inovação</span>
+                <span class="title-line">Inteligência</span>
+                <span class="title-line">Excelência</span>
+            </h1>
+            <p class="hero-subtitle">
+                Projetos em CFTV, redes e suporte técnico desenvolvidos para atender desde residências até operações corporativas.
+            </p>
+            <div class="hero-cta">
+                <a href="contato.html" class="cta-primary">
+                    <span>Falar com Especialista</span>
+                    <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="servicos.html" class="cta-secondary">Ver Soluções</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label">Projetos Entregues</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="99.9">0</div>
+                <div class="stat-label">Uptime Garantido</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Suporte 24/7</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="page-container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">
+                Soluções completas em tecnologia para proteger e otimizar a infraestrutura da sua empresa ou residencia em Manaus, Amazonas.
+            </p>
+            
+            <div class="services-grid-preview">
+                <div class="service-preview-card">
+                    <div class="service-preview-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                            <circle cx="12" cy="10" r="2"/>
+                            <path d="M8 10a4 4 0 0 1 8 0"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-preview-title">CFTV</h3>
+                    <p class="service-preview-description">
+                        Sistemas de videovigilância completos com câmeras IP de alta resolução, 
+                        gravação em nuvem e monitoramento remoto 24/7.
+                    </p>
+                    <a href="servicos.html" class="service-preview-link">Saiba mais →</a>
+                </div>
+
+                <div class="service-preview-card">
+                    <div class="service-preview-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                            <path d="M19.07 19.07l-2.83-2.83M7.76 7.76L4.93 4.93M19.07 4.93l-2.83 2.83M7.76 16.24L4.93 19.07"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-preview-title">Infraestrutura de Redes</h3>
+                    <p class="service-preview-description">
+                        Projeto, implementação e manutenção de redes corporativas de alta performance 
+                        com redundância e escalabilidade garantidas.
+                    </p>
+                    <a href="servicos.html" class="service-preview-link">Saiba mais →</a>
+                </div>
+
+                <div class="service-preview-card">
+                    <div class="service-preview-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            <path d="M13 8H7M17 12H7M17 16H7"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-preview-title">Suporte Técnico</h3>
+                    <p class="service-preview-description">
+                        Equipe especializada disponível 24/7 para resolver problemas técnicos, 
+                        manutenção preventiva e consultoria estratégica.
+                    </p>
+                    <a href="servicos.html" class="service-preview-link">Saiba mais →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview">
+        <div class="page-container">
+            <div class="about-preview-content">
+                <div class="about-preview-text">
+                    <h2 class="section-title">Serviços de TI Avançados</h2>
+                    <p class="about-preview-description">
+                        Somos especialistas em tecnologia e segurança, oferecendo soluções robustas 
+                        para empresas que não podem se dar ao luxo de falhas. Cada projeto é tratado 
+                        com a seriedade de uma infraestrutura crítica.
+                    </p>
+                    <div class="about-values-preview">
+                        <div class="value-preview-item">
+                            <span class="value-preview-number">01</span>
+                            <div>
+                                <h4>Excelência Técnica</h4>
+                                <p>Melhores tecnologias e metodologias comprovadas</p>
+                            </div>
+                        </div>
+                        <div class="value-preview-item">
+                            <span class="value-preview-number">02</span>
+                            <div>
+                                <h4>Confiabilidade</h4>
+                                <p>99.9% de uptime e resposta imediata</p>
+                            </div>
+                        </div>
+                        <div class="value-preview-item">
+                            <span class="value-preview-number">03</span>
+                            <div>
+                                <h4>Inovação</h4>
+                                <p>Sempre à frente das tendências tecnológicas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="sobre.html" class="cta-secondary">Conheça mais sobre nós</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Preview -->
+    <section class="projects-preview">
+        <div class="page-container">
+            <h2 class="section-title">Soluções Implementadas</h2>
+            <p class="section-subtitle">
+                Projetos reais que demonstram nossa capacidade técnica e compromisso com a excelência
+            </p>
+            
+            <div class="projects-grid-preview">
+                <div class="project-preview-card">
+                    <div class="project-preview-category">CFTV</div>
+                    <h3 class="project-preview-title">Sistema de Videovigilância Enterprise</h3>
+                    <p class="project-preview-description">
+                        Implementação completa de CFTV IP projetos personalizados de câmeras, gravação distribuída 
+                        e monitoramento centralizado para empresa ou residencia.
+                    </p>
+                    <div class="project-preview-stats">
+                        <span>99.9% Uptime</span>
+                        <span>•</span>
+                        <span>24/7 Monitoramento</span>
+                    </div>
+                </div>
+
+                <div class="project-preview-card">
+                    <div class="project-preview-category">Infraestrutura</div>
+                    <h3 class="project-preview-title">Rede Corporativa Montegem de rack</h3>
+                    <p class="project-preview-description">
+                        Infraestrutura de rede para empresa ou residencia com montagem de rack e cabeamento estruturado.
+                    </p>
+                    <div class="project-preview-stats">
+                        <span>150% Performance</span>
+                        <span>•</span>
+                        <span>40% Redução de Custos</span>
+                    </div>
+                </div>
+
+                <div class="project-preview-card">
+                    <div class="project-preview-category">Suporte</div>
+                    <h3 class="project-preview-title">Contrato de Suporte 24/7</h3>
+                    <p class="project-preview-description">
+                        Implementação de equipe dedicada com response time de menos de 5 minutos 
+                        para incidentes críticos em infraestrutura multinacional.
+                    </p>
+                    <div class="project-preview-stats">
+                        <span>&lt;5min MTTR</span>
+                        <span>•</span>
+                        <span>100% SLA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="projects-preview-cta">
+                <a href="projetos.html" class="cta-primary">
+                    <span>Ver Todos os Projetos</span>
+                    <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clientes Satisfeitos -->
+    <section class="clients-section">
+        <div class="page-container">
+            <h2>Clientes Satisfeitos</h2>
+            <p>Empresas que confiam em nossas soluções</p>
+            
+            <div class="clients-grid">
+                <!-- Logo Placeholder Box 1 -->
+                <div class="client-logo-box">
+                    <!-- imagem do cliente aqui -->
+                    <!-- <img src="images/clients/client-1.png" alt="Cliente 1"> -->
+                    <div class="client-logo-placeholder"><img src="images/clients/client-1.png" alt="Cliente 1"></div>
+                </div>
+                
+                <!-- Logo Placeholder Box 2 -->
+                <div class="client-logo-box">
+                    <!-- imagem do cliente aqui -->
+                    <!-- <img src="images/clients/client-2.png" alt="Cliente 2"> -->
+                    <div class="client-logo-placeholder"><img src="images/clients/client-2.png" alt="Cliente 2"></div>
+                </div>
+                
+                <!-- Logo Placeholder Box 3 -->
+                <div class="client-logo-box">
+                    <!--  imagem do cliente aqui -->
+                    <!-- <img src="images/clients/client-3.png" alt="Cliente 3"> -->
+                    <div class="client-logo-placeholder"><img src="images/clients/client-3.png" alt="Cliente 3"></div>
+                </div>
+                
+                <!-- Logo Placeholder Box 4 -->
+                <div class="client-logo-box">
+                    <!--  imagem do cliente aqui -->
+                    <!-- <img src="images/clients/client-4.png" alt="Cliente 4"> -->
+                    <div class="client-logo-placeholder"><img src="images/clients/client-4.png" alt="Cliente 4"></div>
+                </div>
+                
+                <!-- Logo Placeholder Box 5 -->
+                <!--<div class="client-logo-box"> -->
+                    <!-- Adicione a imagem do cliente aqui -->
+                    <!-- <img src="images/clients/client-5.png" alt="Cliente 5"> -->
+                    <!--<div class="client-logo-placeholder">Logo Cliente 5</div> -->
+                <!-- </div> -->
+                
+                <!-- Logo Placeholder Box 6 -->
+                <!--<div class="client-logo-box"> -->
+                    <!-- Adicione a imagem do cliente aqui -->
+                    <!-- <img src="images/clients/client-6.png" alt="Cliente 6"> -->
+                   <!-- <div class="client-logo-placeholder"><img src="images/clients/client-6.png" alt="Cliente 6"></div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <!-- Logo da empresa - descomente e adicione o caminho da imagem -->
+                 <div class="footer-logo">
+                    <img src="images/logo.png" alt="Datashield TI Logo">
+                </div> 
+                <div class="footer-logo">
+                    <h3>Datashield TI</h3>
+                </div>
+                <p>Democratizando a tecnologia na região amazônica com soluções inovadoras e suporte especializado para impulsionar seu negócio.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Serviços</h3>
+                <ul class="footer-links">
+                    <li><a href="servicos.html">CFTV Inteligente</a></li>
+                    <li><a href="servicos.html">Controle de Acesso</a></li>
+                    <li><a href="servicos.html">Suporte de TI</a></li>
+                    <li><a href="servicos.html">Criação de Sites</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projetos.html">Nossos Trabalhos</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <div>
+                        <div>Manaus, Amazonas</div>
+                        <div>Brasil</div>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <a href="tel:+5592996092339">(92) 99609-2339</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <div>
+                        <div>Seg - Sex: 8h às 18h</div>
+                        <div>Sáb: 8h às 12h</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                © 2025 Datashield. Todos os direitos reservados.
+            </div>
+            <ul class="footer-bottom-links">
+                <li><a href="#privacy">Política de Privacidade</a></li>
+                <li><a href="#terms">Termos de Serviço</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Área comentada para imagens animadas transparentes no background -->
+    <!-- Descomente e adicione as imagens quando estiverem prontas -->
+     
+    <div class="floating-background-images">
+        <img src="images/bg-elements/element-1.png" alt="" class="floating-img floating-img-1">
+        <img src="images/bg-elements/element-2.png" alt="" class="floating-img floating-img-2"> 
+        <img src="images/bg-elements/element-3.png" alt="" class="floating-img floating-img-3"> 
+    </div>
+    
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5592996092339" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.49 1.32 5.02L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C22.95 6.45 18.5 2 12.04 2zm.01 18.21c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.83-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.73-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.32-.02-.43-.06-.11-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.3-.01-.47-.01s-.27 0-.39.14c-.12.14-.46.57-.46 1.39 0 .82.6 1.61.68 1.72.08.1 1.16 1.77 2.81 2.47.98.42 1.75.67 2.34.86.98.31 1.87.27 2.57.16.79-.12 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.07-.1-.25-.16-.5-.28z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

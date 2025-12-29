@@ -1,0 +1,107 @@
+/* ============================================
+   CLIENTES SATISFEITOS SECTION
+   ============================================ */
+
+.clients-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: rgba(10, 10, 10, 0.5);
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.clients-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-white-tech);
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.clients-section p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-metallic);
+    margin-bottom: var(--spacing-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.client-logo-box {
+    background: rgba(18, 18, 18, 0.6);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    padding: var(--spacing-lg);
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s var(--transition-smooth);
+    backdrop-filter: blur(10px);
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+    position: relative;
+    overflow: hidden;
+}
+
+.client-logo-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(0, 102, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.4s var(--transition-smooth);
+}
+
+.client-logo-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-tech-cyan);
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.2);
+}
+
+.client-logo-box:hover::before {
+    opacity: 1;
+}
+
+/* Placeholder for client logos */
+.client-logo-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.5);
+    transition: all 0.4s var(--transition-smooth);
+}
+
+.client-logo-box:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+}
+
+/* Placeholder text when no image */
+.client-logo-placeholder {
+    color: var(--color-metallic);
+    font-size: 0.85rem;
+    text-align: center;
+    opacity: 0.3;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-md);
+    }
+}
+
+
+
