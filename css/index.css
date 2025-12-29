@@ -272,26 +272,9 @@
     }
 }
 .logo img {
-    width: 112px !important;      /* aumentei de 32 → 42 */
-    max-height: 112px !important;
-    height: auto !important;
-    max-width: none !important;
-    object-fit: contain !important;
-    display: block !important;
-  
-    /* visual premium tech */
-    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.55));
-  }
-  @media (max-width: 768px) {
-    .logo img {
-      width: 122px !important;
-      max-height: 122px !important;
-    }
-  }
-  .logo:hover img {
-    transform: scale(1.06);
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.8));
-  }
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+} 
     
   

@@ -2,33 +2,38 @@
    PREMIUM TECH SITE - CINEMATIC STYLES
    ============================================ */
 
-:root {
-    --color-bg-deep: #0A0A0A;
-    --color-bg-dark: #121212;
-    --color-tech-blue: #0066FF;
-    --color-tech-cyan: #00FFFF;
-    --color-tech-green: #00FF88;
-    --color-white-tech: #E0E0E0;
-    --color-metallic: #d4d3d4;
+   :root {
+    /* FUNDO: Trocamos o azul royal pelo Slate Dark (Mais profundo e caro) */
+    --color-bg-deep: #020617;     /* Um azul tão escuro que parece preto, mas tem alma */
+    --color-bg-dark: #0f172a;     /* Tom para cards e seções secundárias */
     
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-display: 'Orbitron', monospace;
+    /* CORES TECH: Menos saturação, mais elegância */
+    --color-tech-blue: #3b82f6;   /* Azul Royal moderno, não agressivo */
+    --color-tech-cyan: #22d3ee;   /* Ciano Cristal (mais suave que o #00FFFF) */
+    --color-tech-green: #10b981;  /* Verde Esmeralda (passa confiança e eficiência) */
     
+    /* TIPOGRAFIA E METAIS: Brancos acinzentados */
+    --color-white-tech: #f8fafc;  /* Branco puro para títulos principais */
+    --color-text-muted: #94a3b8;  /* Cinza para descrições (essencial para hierarquia) */
+    --color-metallic: #cbd5e1;    /* Reflexo metálico */
+    
+    /* FONTES E OUTROS */
+    --font-primary: 'Inter', -apple-system, sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+    
+    /* SPACING & TRANSITION (Mantidos, estão ótimos) */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 8rem;
-    
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 /* ============================================
    RESET & BASE
    ============================================ */
-
-* {
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -41,18 +46,16 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background: var(--color-bg-deep);
+    background: var(--color-bg-deep); /* Mantém o fundo escuro para o JS */
     color: var(--color-white-tech);
     overflow-x: hidden;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ============================================
-   3D CANVAS BACKGROUND
+   3D CANVAS BACKGROUND (Não mexer aqui para não quebrar o JS)
    ============================================ */
-
 #bg-canvas {
     position: fixed;
     top: 0;
@@ -64,9 +67,8 @@ body {
 }
 
 /* ============================================
-   NAVIGATION - GLASSMORPHISM
+   NAVIGATION - GLASSMORPHISM REFINADO
    ============================================ */
-
 .main-nav {
     position: fixed;
     top: 0;
@@ -74,8 +76,9 @@ body {
     width: 100%;
     z-index: 1000;
     padding: var(--spacing-sm) 0;
-    backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(60, 20, 202, 0.7);
+    backdrop-filter: blur(15px) saturate(150%);
+    /* Ajuste: Tiramos o roxo forte e usamos um tom escuro translúcido */
+    background: rgba(2, 6, 23, 0.7); 
     border-bottom: 1px solid rgba(0, 255, 255, 0.1);
     transition: all 0.4s var(--transition-smooth);
 }
@@ -100,19 +103,20 @@ body {
     color: var(--color-white-tech);
 }
 
-/* Logo Image - descomente quando tiver a imagem pronta */
-/* .logo img {
+.logo img {
     height: 40px;
     width: auto;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
-} */
+    /* Brilho mais suave em ciano */
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.4));
+} 
 
 .logo-dot {
     width: 8px;
     height: 8px;
-    background: #25D366;
+    /* Usando o verde da sua variável root para manter consistência */
+    background: var(--color-tech-green); 
     border-radius: 50%;
-    box-shadow: 0 0 20px #25D366;
+    box-shadow: 0 0 15px var(--color-tech-green);
     animation: pulse-dot 2s ease-in-out infinite;
 }
 
@@ -138,6 +142,7 @@ body {
     transition: color 0.3s var(--transition-smooth);
 }
 
+/* O gradiente agora usa suas variáveis premium */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -158,7 +163,6 @@ body {
 .nav-link.active::after {
     width: 100%;
 }
-
 /* ============================================
    HERO SECTION
    ============================================ */
@@ -525,5 +529,4 @@ body {
     background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
     margin: var(--spacing-xl) 0;
 }
-
 
