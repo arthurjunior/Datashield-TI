@@ -255,4 +255,7 @@
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.8));
   }
-    
+  .map-container iframe {
+    filter: grayscale(1) invert(0.92) contrast(1.2); /* Deixa o mapa no estilo escuro/tecnológico */
+    border-radius: 12px;
+}

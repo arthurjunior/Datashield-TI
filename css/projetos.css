@@ -175,6 +175,26 @@
         gap: var(--spacing-sm);
     }
 }
+ /* imagens de projetos*/
+ .project-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px; /* Ajuste conforme seu layout */
+}
+
+.project-img-real {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a foto preencher o espaço sem distorcer */
+    transition: transform 0.5s ease;
+    filter: brightness(0.8) contrast(1.1); /* Deixa a imagem mais "séria" e tech */
+}
+
+.project-card:hover .project-img-real {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    filter: brightness(1);
+}
+
 
 
 

@@ -530,3 +530,14 @@ body {
     margin: var(--spacing-xl) 0;
 }
 
+/* Deixar escala em 75% para melhor visualização da pagina no navegador do computador */
+:root {
+    --ui-scale: 0.75;
+  }
+  
+  body {
+    transform: scale(var(--ui-scale));
+    transform-origin: top center;
+    width: calc(100% / var(--ui-scale));
+  }
+ 
