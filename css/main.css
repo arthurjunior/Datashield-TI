@@ -163,6 +163,21 @@ body {
 .nav-link.active::after {
     width: 100%;
 }
+
+.nav-link.highlight-menu {
+    background: linear-gradient(90deg, var(--color-tech-cyan), var(--color-tech-blue));
+    color: var(--color-bg-deep);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    font-weight: 700;
+}
+.nav-link.highlight-menu::after {
+    display: none;
+}
+.nav-link.highlight-menu:hover {
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+    transform: translateY(-2px);
+}
 /* ============================================
    HERO SECTION
    ============================================ */
