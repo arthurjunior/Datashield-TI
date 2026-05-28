@@ -80,6 +80,32 @@
     font-weight: 600;
 }
 
+.badge-mtcna {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(0, 255, 255, 0.2));
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    border-radius: 50px;
+    color: var(--color-white-tech);
+    font-weight: 700;
+    font-family: var(--font-display);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.badge-mtcna:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+}
+
+.badge-mtcna svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-tech-cyan);
+}
+
 .founder-name {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 2.8rem);

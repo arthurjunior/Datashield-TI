@@ -69,10 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
-
-// Handle page navigation highlight
-document.addEventListener('DOMContentLoaded', () => {
+    
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -126,6 +123,87 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
+        });
+    }
+
+    // Handle chatbot
+    let chatbotState = {
+        step: 1,
+        type: '',
+        problem: ''
+    };
+    
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotActions = document.getElementById('chatbotActions');
+    
+    if (chatbotToggle && chatbotWindow && chatbotClose && chatbotMessages && chatbotActions) {
+        function addBotMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message bot-message';
+            messageDiv.innerHTML = `
+                <div class="chat-avatar">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="11" cy="11" r="8"/>
+                    </svg>
+                </div>
+                <div class="chat-content">
+                    <p>${text}</p>
+                </div>
+            `;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+        
+        function setActions(buttons) {
+            chatbotActions.innerHTML = '';
+            buttons.forEach(btn => {
+                const button = document.createElement('button');
+                button.className = `chat-action-btn ${btn.class || ''}`;
+                button.textContent = btn.text;
+                button.dataset.step = btn.step;
+                button.dataset.value = btn.value;
+                button.addEventListener('click', handleActionClick);
+                chatbotActions.appendChild(button);
+            });
+        }
+        
+        function handleActionClick(e) {
+            const step = e.target.dataset.step;
+            const value = e.target.dataset.value;
+            
+            if (step === 'type') {
+                chatbotState.type = value;
+                addBotMessage('Qual problema você está enfrentando?');
+                setActions([
+                    { text: 'Wi-Fi lento', step: 'problem', value: 'Wi-Fi lento' },
+                    { text: 'Rede', step: 'problem', value: 'problema de rede' },
+                    { text: 'Infraestrutura', step: 'problem', value: 'infraestrutura' },
+                    { text: 'CFTV', step: 'problem', value: 'CFTV' },
+                    { text: 'Computadores', step: 'problem', value: 'computadores lentos' },
+                    { text: 'Outro', step: 'problem', value: 'outro problema' }
+                ]);
+            } else if (step === 'problem') {
+                chatbotState.problem = value;
+                addBotMessage('Perfeito. Vamos continuar o atendimento no WhatsApp.');
+                setActions([
+                    { text: 'Falar agora', step: 'whatsapp', class: 'whatsapp' }
+                ]);
+            } else if (step === 'whatsapp') {
+                let message = `Olá, vim pelo site da DATASHIELD TI. Preciso de ajuda para ${chatbotState.type === 'empresa' ? 'minha empresa' : 'minha residência'} com ${chatbotState.problem}.`;
+                const whatsappUrl = `https://wa.me/5592996092339?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            }
+        }
+        
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+        });
+        
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
         });
     }
 });
