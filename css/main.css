@@ -178,6 +178,49 @@ body {
     box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
     transform: translateY(-2px);
 }
+
+.nav-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.nav-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.nav-whatsapp svg {
+    width: 20px;
+    height: 20px;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-toggle-line {
+    width: 25px;
+    height: 3px;
+    background: var(--color-white-tech);
+    border-radius: 2px;
+    transition: all 0.3s var(--transition-smooth);
+}
+
 /* ============================================
    HERO SECTION
    ============================================ */
@@ -475,18 +518,30 @@ body {
         justify-content: center;
         margin-top: var(--spacing-sm);
         gap: var(--spacing-sm);
+        display: none;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md) 0;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-whatsapp span {
+        display: none;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        gap: var(--spacing-xs);
-        flex-wrap: wrap;
-    }
-    
     .nav-link {
-        font-size: 0.85rem;
-        padding: 0.4rem 0;
+        font-size: 1rem;
+        padding: 0.5rem 0;
     }
     
     .logo {

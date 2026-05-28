@@ -88,5 +88,45 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.remove('active');
         }
     });
+
+    // Handle diagnosis form submission
+    const diagnosisForm = document.getElementById('diagnosisForm');
+    if (diagnosisForm) {
+        diagnosisForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('diagnosis-name').value.trim();
+            const whatsapp = document.getElementById('diagnosis-whatsapp').value.trim();
+            const company = document.getElementById('diagnosis-company').value.trim();
+            const neighborhood = document.getElementById('diagnosis-neighborhood').value.trim();
+            const problem = document.getElementById('diagnosis-problem').value.trim();
+            
+            let message = `Olá, sou ${name}`;
+            if (company) {
+                message += `, da empresa ${company}`;
+            }
+            message += `, moro no bairro ${neighborhood} e preciso de ajuda com ${problem}.`;
+            
+            const whatsappUrl = `https://wa.me/5592996092339?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    }
+
+    // Handle mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when a link is clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
 });
 
