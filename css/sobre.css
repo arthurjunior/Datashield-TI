@@ -29,16 +29,21 @@
 
 .founder-image-placeholder {
     width: 100%;
-    aspect-ratio: 1;
+    max-width: 360px;
+    aspect-ratio: 9 / 16;
     background: rgba(18, 18, 18, 0.6);
     border: 2px dashed rgba(0, 255, 255, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    color: var(--color-metallic);
-    font-size: 1.2rem;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
     clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+}
+
+.founder-image-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
 }
 
 .certificate-placeholder {
@@ -49,10 +54,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
-    color: var(--color-tech-green);
-    font-size: 1rem;
     clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+}
+
+.certificate-placeholder img {
+    width: auto;
+    height: auto;
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.3));
 }
 
 .founder-specialties-title {
